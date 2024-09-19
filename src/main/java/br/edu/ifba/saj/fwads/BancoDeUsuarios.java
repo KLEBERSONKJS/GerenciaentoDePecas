@@ -11,10 +11,8 @@ public class BancoDeUsuarios {
     
     static{
         listaUsuarios = new ArrayList<>();
-        listaUsuarios.add(new Usuario("admin", "admin", "seila1@algumacoisa.com"));
-        listaUsuarios.add(new Usuario("Kleberson", "12345", "seila2@algumacoisa.com"));
-        listaUsuarios.add(new Usuario("Suellen", "54321", "seila3@algumacoisa.com"));
-        listaUsuarios.add(new Usuario("Carlos", "431343", "seila4@algumacoisa.com"));
+        listaUsuarios.add(new Usuario("admin", "admin"));
+        listaUsuarios.add(new Usuario("Kleberson", "12345"));
     }
     
 
