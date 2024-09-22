@@ -17,13 +17,22 @@ public class ListPecaController {
     private TableView<Peca> tblPeca;
     
     @FXML
-    private TableColumn<Peca, String> columnTitulo;
+    private TableColumn<?, ?> columnCusto;
+
     @FXML
-    private TableColumn<Peca, String> columnSubTitulo;
+    private TableColumn<?, ?> columnModelo;
+
     @FXML
-    private TableColumn<Peca, Integer> columnISBN;
+    private TableColumn<?, ?> columnQuantidade;
+
     @FXML
-    private TableColumn<Peca, Integer> columnAutor;
+    private TableColumn<?, ?> columnTipo;
+
+    @FXML
+    private TableColumn<?, ?> columnValorVenda;
+
+    @FXML
+    private TableView<?> tblLivro;
 
 
     @FXML
