@@ -4,22 +4,34 @@ import java.util.Comparator;
 
 public class  Peca implements Comparable<Peca>{
     
-    private Marca marca;
-    private Tipo tipo;
     private String modelo;
+    private Tipo tipo;
+    private Marca marca;
     private double custo;
     private double valorVenda;
     private int qnt;
 
     
     
-    public Peca(Marca marca, Tipo tipo, String modelo, double custo, double valorVenda, int qnt) {
-        this.marca = marca;
-        this.tipo = tipo;
+  
+    
+    public Peca(String modelo, Tipo tipo, Marca marca, double custo, double valorVenda, int qnt) {
         this.modelo = modelo;
+        this.tipo = tipo;
+        this.marca = marca;
         this.custo = custo;
         this.valorVenda = valorVenda;
         this.qnt = qnt;
+    }
+
+
+    public Peca(){
+        this.marca = null;
+        this.tipo = null;
+        this.modelo = null;
+        this.custo = 0;
+        this.valorVenda = 0;
+        this.qnt = 0; 
     }
     
 

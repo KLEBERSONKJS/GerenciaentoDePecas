@@ -2,6 +2,7 @@ package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.Estoque;
 import br.edu.ifba.saj.fwads.model.Marca;
+import br.edu.ifba.saj.fwads.model.Tipo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -60,11 +61,28 @@ public class CadPeca {
 
     @FXML
     void addPeca(ActionEvent event) {
-        Estoque.novaPeca(slMarca.getSelectionModel().getSelectedItem(), slTipo.getSelectionModel().getSelectedItem(),
-                txModelo.getText(), txCusto.getText(), txValorVenda.getText(), txQuantidade.getText());
-        Estoque.novaPeca(null, null, null, 0, 0, 0);
-        limparTela();
+        try {
+            String scusto = txCusto.getText();
+            double custo = Double.parseDouble(scusto);
+            String squantidade = txQuantidade.getText();
+            int quantidade = Integer.parseInt(squantidade);
+            String svenda = txValorVenda.getText();
+            double valorVenda = Double.parseDouble(scusto);
+            
+            Estoque.novaPeca(txModelo.getText(),slTipo.getSelectionModel().getSelectedItem(),slMarca.getSelectionModel().getSelectedItem(),custo, 
+            valorVenda, quantidade);
 
+            
+        } catch (NumberFormatException e) {
+            System.out.println("Entrada inválida. Por favor, insira um número válido.");
+        }
+        //limparTela();
+
+    }
+
+    @FXML
+    private void handleConvertButtonAction() {
+        
     }
 
     @FXML
@@ -86,17 +104,16 @@ public class CadPeca {
                 return marca != null ? marca.getNome() : ""; // Supondo que Marca tenha um método getNome()
             }
         });
-    }
 
-    @FXML
-    private void initialize() {
+
+
         slTipo.setConverter(new StringConverter<Tipo>() {
 
             @Override
-            public Tipo fromString(String tipo) {
-                return Estoque.marcas
+            public Tipo fromString(String stringtipo) {
+                return Estoque.tipos
                         .stream()
-                        .filter(marca -> stringMarca.equals(marca.getNome())) 
+                        .filter(tipo -> stringtipo.equals(tipo.getNome())) 
                         .findAny()
                         .orElse(null);
             }
@@ -108,17 +125,19 @@ public class CadPeca {
         });
     }
 
-    @FXML
-    private void limparTela() {
-        txTitulo.setText("");
-        txSubTitulo.setText("");
-        txISBN.setText("");
-        // Todo REVER
-        slAutor.setSelectionModel(null);
-    }
+    
 
-    private void carregarListaAutores() {
-        slAutor.setItems(Biblioteca.listaAutores);
-    }
+    // @FXML
+    // private void limparTela() {
+    //     txTitulo.setText("");
+    //     txSubTitulo.setText("");
+    //     txISBN.setText("");
+    //     // Todo REVER
+    //     slAutor.setSelectionModel(null);
+    // }
+
+    // private void carregarListaAutores() {
+    //     slAutor.setItems(Biblioteca.listaAutores);
+    // }
 
 }

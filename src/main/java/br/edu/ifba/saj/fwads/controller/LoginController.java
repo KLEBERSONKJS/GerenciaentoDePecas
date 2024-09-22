@@ -31,7 +31,7 @@ public class LoginController {
             new Alert(AlertType.INFORMATION, "Seja Bem Vindo " + usuario.getLogin()).show();
             App.setRoot("controller/Master.fxml");
             MasterController masterController = (MasterController)App.getController();
-            masterController.setEmailUsuarioLogado(usuario.getEmail());
+            //masterController.setEmailUsuarioLogado(usuario.getEmail());
         }
         catch(AutenticacaoInvalidaException e){
             new Alert(AlertType.ERROR, "Usuário ou senha inválidos").show();

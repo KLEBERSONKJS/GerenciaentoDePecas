@@ -17,30 +17,27 @@ public class ListPecaController {
     private TableView<Peca> tblPeca;
     
     @FXML
-    private TableColumn<?, ?> columnCusto;
-
-    @FXML
     private TableColumn<?, ?> columnModelo;
-
-    @FXML
-    private TableColumn<?, ?> columnQuantidade;
-
+    
     @FXML
     private TableColumn<?, ?> columnTipo;
 
     @FXML
-    private TableColumn<?, ?> columnValorVenda;
-
+    private TableColumn<?, ?> columnCusto;
+     
     @FXML
-    private TableView<?> tblLivro;
-
+    private TableColumn<?, ?> columnValorVenda;
+    
+    @FXML
+    private TableColumn<?, ?> columnQuantidade;
 
     @FXML
     public void initialize() {
-        columnTitulo.setCellValueFactory(new PropertyValueFactory<>("Titulo"));
-        columnSubTitulo.setCellValueFactory(new PropertyValueFactory<>("SubTitulo"));
-        columnISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
-        columnAutor.setCellValueFactory(new PropertyValueFactory<>("Autor"));
+        columnModelo.setCellValueFactory(new PropertyValueFactory<>("Modelo"));
+        columnTipo.setCellValueFactory(new PropertyValueFactory<>("Autor"));
+        columnCusto.setCellValueFactory(new PropertyValueFactory<>("Custo"));
+        columnValorVenda.setCellValueFactory(new PropertyValueFactory<>("Autor"));
+        columnQuantidade.setCellValueFactory(new PropertyValueFactory<>("Quantidade"));
         tblPeca.setItems(Estoque.pecas);
     }
 

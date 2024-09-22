@@ -27,8 +27,8 @@ public class Estoque {
     }
     
     //CADASTRAR UMA PECA
-    public static void novaPeca(Marca marca, Tipo tipo, String modelo, double custo, double valorVenda, int qnt){
-        pecas.add(new Peca( marca, tipo, modelo, custo, valorVenda, qnt));
+    public static void novaPeca(String modelo, Tipo tipo, Marca marca, double custo, double valorVenda, int qnt){
+        pecas.add(new Peca(modelo, tipo, marca, custo, valorVenda, qnt));
         
     }
 
@@ -105,9 +105,7 @@ public class Estoque {
         Tipo t1 = new Tipo("tela");
         Estoque.marcas.add(n1);
         Estoque.marcas.add(n2);
-        Estoque.novaPeca(n1, t1, "A",45,65,10);
-        Estoque.novaPeca(n1, t1, "C",45,65,10);
-        Estoque.novaPeca(n2, t1, "B",45,65,10);
+        Estoque.novaPeca("S9",t1,n2,35,90,10);
         //System.out.println(Estoque.getPecas());
         Estoque.pecasOrdenadas();
     }
