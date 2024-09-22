@@ -1,6 +1,8 @@
 package br.edu.ifba.saj.fwads.model;
 
-public class  Peca {
+import java.util.Comparator;
+
+public class  Peca implements Comparable<Peca>{
     
     private Marca marca;
     private Tipo tipo;
@@ -9,8 +11,8 @@ public class  Peca {
     private double valorVenda;
     private int qnt;
 
-
-
+    
+    
     public Peca(Marca marca, Tipo tipo, String modelo, double custo, double valorVenda, int qnt) {
         this.marca = marca;
         this.tipo = tipo;
@@ -19,12 +21,24 @@ public class  Peca {
         this.valorVenda = valorVenda;
         this.qnt = qnt;
     }
+    
 
-
-
+    //COMPARA STRINGS
+    @Override
+    public int compareTo(Peca p) {
+        return  modelo.compareTo(p.getModelo());
+    }
+   
+    
+    
+    
     public Marca getMarca() {
         return marca;
     }
+
+
+
+
 
 
 
@@ -94,12 +108,13 @@ public class  Peca {
 
 
 
+
+
     @Override
     public String toString() {
         return "Peca [marca=" + marca + ", tipo=" + tipo + ", modelo=" + modelo + ", custo=" + custo + ", valorVenda="
                 + valorVenda + ", qnt=" + qnt + "]";
     }
-
 
 
     @Override
@@ -152,6 +167,11 @@ public class  Peca {
             return false;
         return true;
     }
+
+   
+
+
+
     
     
     

@@ -1,11 +1,16 @@
 package br.edu.ifba.saj.fwads;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 import br.edu.ifba.saj.fwads.model.Logista;
 import br.edu.ifba.saj.fwads.model.Marca;
 import br.edu.ifba.saj.fwads.model.Peca;
 import br.edu.ifba.saj.fwads.model.Tipo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 
 public class Estoque {
     
@@ -14,6 +19,7 @@ public class Estoque {
     public static ObservableList<Marca> marcas = FXCollections.observableArrayList(); 
     public static ObservableList<Tipo> tipos = FXCollections.observableArrayList();
 
+    
     
     //REGISTRAR MARCA DE PECA
     public static void novaMarca(String nome){
@@ -84,6 +90,26 @@ public class Estoque {
             }
         }    
         return pesquisada;
+    }
+
+    //LISTA DE PECAS ORDENADAS POR NOME
+    public static void pecasOrdenadas(){
+        ArrayList<Peca> ordenadas = new ArrayList<>(pecas);
+        Collections.sort(ordenadas);
+        System.out.println(ordenadas);
+    }
+
+    public static void main(String[] args) {
+        Marca n1 = new Marca("Lg");
+        Marca n2 = new Marca("Samsung");
+        Tipo t1 = new Tipo("tela");
+        Estoque.marcas.add(n1);
+        Estoque.marcas.add(n2);
+        Estoque.novaPeca(n1, t1, "A",45,65,10);
+        Estoque.novaPeca(n1, t1, "C",45,65,10);
+        Estoque.novaPeca(n2, t1, "B",45,65,10);
+        //System.out.println(Estoque.getPecas());
+        Estoque.pecasOrdenadas();
     }
 
 }

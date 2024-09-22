@@ -1,8 +1,8 @@
 package br.edu.ifba.saj.fwads.controller;
 
 import br.edu.ifba.saj.fwads.App;
-import br.edu.ifba.saj.fwads.Biblioteca;
-import br.edu.ifba.saj.fwads.model.Livro;
+import br.edu.ifba.saj.fwads.Estoque;
+import br.edu.ifba.saj.fwads.model.Peca;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -12,18 +12,18 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class ListLivroController {
+public class ListPecaController {
     @FXML
-    private TableView<Livro> tblLivro;
+    private TableView<Peca> tblPeca;
     
     @FXML
-    private TableColumn<Livro, String> columnTitulo;
+    private TableColumn<Peca, String> columnTitulo;
     @FXML
-    private TableColumn<Livro, String> columnSubTitulo;
+    private TableColumn<Peca, String> columnSubTitulo;
     @FXML
-    private TableColumn<Livro, Integer> columnISBN;
+    private TableColumn<Peca, Integer> columnISBN;
     @FXML
-    private TableColumn<Livro, Integer> columnAutor;
+    private TableColumn<Peca, Integer> columnAutor;
 
 
     @FXML
@@ -32,14 +32,14 @@ public class ListLivroController {
         columnSubTitulo.setCellValueFactory(new PropertyValueFactory<>("SubTitulo"));
         columnISBN.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
         columnAutor.setCellValueFactory(new PropertyValueFactory<>("Autor"));
-        tblLivro.setItems(Biblioteca.listaLivros);
+        tblPeca.setItems(Estoque.pecas);
     }
 
     @FXML
-    public void showNovoLivro() {
+    public void showNovoPeca() {
         
         Stage stage = new Stage();            
-        Scene scene = new Scene(App.loadFXML("controller/CadLivro.fxml"), 800, 600);            
+        Scene scene = new Scene(App.loadFXML("controller/CadPeca.fxml"), 800, 600);            
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL); 
         stage.showAndWait();            
