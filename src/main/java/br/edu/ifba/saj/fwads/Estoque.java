@@ -19,7 +19,13 @@ public class Estoque {
     public static ObservableList<Marca> marcas = FXCollections.observableArrayList(); 
     public static ObservableList<Tipo> tipos = FXCollections.observableArrayList();
 
-    
+    static{
+        novaMarca("Samsung");
+        novaMarca("Apple");
+        novaMarca("Motorola");
+        novaMarca("Xiaomi");
+        novaMarca("Realme");
+    }
     
     //REGISTRAR MARCA DE PECA
     public static void novaMarca(String nome){

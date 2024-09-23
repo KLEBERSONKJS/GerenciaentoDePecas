@@ -30,7 +30,6 @@ public class LoginController {
             Usuario usuario = BancoDeUsuarios.autenticar(txUsuario.getText(), txSenha.getText());
             new Alert(AlertType.INFORMATION, "Seja Bem Vindo " + usuario.getLogin()).show();
             App.setRoot("controller/Master.fxml");
-            MasterController masterController = (MasterController)App.getController();
             //masterController.setEmailUsuarioLogado(usuario.getEmail());
         }
         catch(AutenticacaoInvalidaException e){
