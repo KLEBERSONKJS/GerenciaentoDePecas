@@ -24,13 +24,14 @@ public class MasterController {
     @FXML
     void ListEstoque(MouseEvent event) {
         //limparBotoes(event.getSource());
-        showFXMLFile("LisLogista.fxml");
+        showFXMLFile("ListPeca.fxml");
+       // App.setRoot("controller/Master.fxml");
     }
 
     @FXML
     void ListLogistas(MouseEvent event) {
         //limparBotoes(event.getSource());
-        showFXMLFile("LisLogista.fxml");
+        showFXMLFile("controller/ListLogista.fxml");
     }
 
     
