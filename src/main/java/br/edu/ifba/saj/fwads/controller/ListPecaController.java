@@ -34,9 +34,9 @@ public class ListPecaController {
     @FXML
     public void initialize() {
         columnModelo.setCellValueFactory(new PropertyValueFactory<>("Modelo"));
-        columnTipo.setCellValueFactory(new PropertyValueFactory<>("Autor"));
+        columnTipo.setCellValueFactory(new PropertyValueFactory<>("Tipo"));
         columnCusto.setCellValueFactory(new PropertyValueFactory<>("Custo"));
-        columnValorVenda.setCellValueFactory(new PropertyValueFactory<>("Autor"));
+        columnValorVenda.setCellValueFactory(new PropertyValueFactory<>("ValorVenda"));
         columnQuantidade.setCellValueFactory(new PropertyValueFactory<>("Quantidade"));
         tblPeca.setItems(Estoque.pecas);
     }
