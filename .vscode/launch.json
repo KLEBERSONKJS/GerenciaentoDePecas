@@ -13,20 +13,6 @@
         },
         {
             "type": "java",
-            "name": "main",
-            "request": "launch",
-            "mainClass": "br.edu.ifba.saj.fwads/br.edu.ifba.saj.fwads.main",
-            "projectName": "fx-template"
-        },
-        {
-            "type": "java",
-            "name": "App",
-            "request": "launch",
-            "mainClass": "br.edu.ifba.saj.fwads/br.edu.ifba.saj.fwads.App",
-            "projectName": "atividade"
-        },
-        {
-            "type": "java",
             "name": "Bicicleta",
             "request": "launch",
             "mainClass": "br.edu.ifba.saj.fwads/br.edu.ifba.saj.fwads.Bicicleta",

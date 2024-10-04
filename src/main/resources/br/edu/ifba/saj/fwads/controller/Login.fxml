@@ -4,6 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -12,53 +17,76 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="418.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.LoginController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="506.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifba.saj.fwads.controller.LoginController">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="786.0" minWidth="10.0" prefWidth="361.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="404.0" minWidth="0.0" prefWidth="0.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox alignment="CENTER" prefHeight="418.0" prefWidth="328.0" style="-fx-background-color: green;">
+      <StackPane prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: green;">
          <children>
-            <StackPane prefHeight="375.0" prefWidth="318.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: gray;">
                <children>
-                  <AnchorPane maxHeight="400.0" maxWidth="327.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="289.0">
-                     <children>
-                        <Label layoutX="126.0" layoutY="108.0" text="Login" textFill="#ff69afc4">
-                           <font>
-                              <Font name="System Bold" size="22.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txUsuario" layoutX="50.0" layoutY="165.0" prefHeight="35.0" prefWidth="207.0" promptText="usuário" stylesheets="@assets/style.css" />
-                        <PasswordField fx:id="txSenha" layoutX="50.0" layoutY="222.0" prefHeight="35.0" prefWidth="207.0" promptText="senha" stylesheets="@assets/style.css" />
-                        <Button cancelButton="true" layoutX="166.0" layoutY="295.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="35.0" prefWidth="94.0" style="-fx-background-color: pink;" styleClass="btn-cancelar" stylesheets="@assets/style.css" text="Cancelar">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Button>
-                        <Button defaultButton="true" graphicTextGap="7.0" layoutX="51.0" layoutY="295.0" mnemonicParsing="false" onAction="#entrar" prefHeight="32.0" prefWidth="87.0" style="-fx-background-color: violet;" styleClass="btn-login" stylesheets="@assets/style.css" text="Iniciar" textFill="#080303">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Button>
-                        <Label layoutX="99.0" layoutY="39.0" prefHeight="32.0" prefWidth="119.0" text="Bem Vindo&#10;Gerenciamento de PEcas&#10;&#10;" textFill="#000000c4">
-                           <font>
-                              <Font name="System Bold" size="22.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="248.0" layoutY="374.0" prefHeight="25.0" prefWidth="35.0" text="By: kjs" textAlignment="JUSTIFY" textFill="#ff0808c4">
-                           <font>
-                              <Font name="System Bold" size="10.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Gerenciamento de Estoque" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="28.0" />
+                     </font>
+                     <effect>
+                        <Bloom threshold="1.0">
+                           <input>
+                              <DropShadow />
+                           </input>
+                        </Bloom>
+                     </effect>
+                  </Label>
+                  <ImageView fitHeight="379.0" fitWidth="377.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/—Pngtree—distribution%20goods%20from%20a%20warehouse_3565575.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Bem vindo ao Sistema" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="26.0" />
+                     </font>
+                     <effect>
+                        <DropShadow>
+                           <input>
+                              <Blend />
+                           </input>
+                        </DropShadow>
+                     </effect>
+                  </Label>
                </children>
-            </StackPane>
+            </VBox>
          </children>
-      </VBox>
+      </StackPane>
+      <StackPane prefHeight="476.0" prefWidth="393.0" style="-fx-background-color: black;" GridPane.columnIndex="1">
+         <children>
+            <AnchorPane maxHeight="420.0" maxWidth="325.0" prefHeight="420.0" prefWidth="427.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="39.0" layoutY="53.0" text="Entrar">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txUsuario" layoutX="39.0" layoutY="117.0" prefHeight="35.0" prefWidth="245.0" promptText="usuário" stylesheets="@assets/style.css" />
+                  <PasswordField fx:id="txSenha" layoutX="39.0" layoutY="174.0" prefHeight="35.0" prefWidth="245.0" promptText="senha" stylesheets="@assets/style.css" />
+                  <Button cancelButton="true" layoutX="164.0" layoutY="232.0" mnemonicParsing="false" onAction="#limparCampos" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: red;" styleClass="btn-cancelar" stylesheets="@assets/style.css" text="Cancelar">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button defaultButton="true" layoutX="39.0" layoutY="232.0" mnemonicParsing="false" onAction="#entrar" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: Black;" styleClass="btn-login" stylesheets="@assets/style.css" text="Entrar" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
    </children>
 </GridPane>

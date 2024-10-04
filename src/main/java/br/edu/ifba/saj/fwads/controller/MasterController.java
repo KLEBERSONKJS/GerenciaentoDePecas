@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -22,92 +21,74 @@ public class MasterController {
     private BorderPane masterPane;
 
     @FXML
-    void ListEstoque(MouseEvent event) {
-        //limparBotoes(event.getSource());
-        showFXMLFile("ListPeca.fxml");
-       // App.setRoot("controller/Master.fxml");
+    private VBox menu;
+
+    @FXML
+    private Label userLogin;
+
+    @FXML
+    private Circle userPicture;
+
+    @FXML
+    void logOff(ActionEvent event) {
+        Alert alert = new Alert(AlertType.CONFIRMATION, "Deseja realmente sair??", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait()
+                .filter(response -> response == ButtonType.YES)
+                .ifPresent(response -> {
+                    App.setRoot("controller/Login.fxml");
+                });
     }
 
     @FXML
-    void ListLogistas(MouseEvent event) {
-        //limparBotoes(event.getSource());
-        showFXMLFile("controller/ListLogista.fxml");
+    void showHome(ActionEvent event) {
+        limparBotoes(event.getSource());
+        masterPane.setCenter(new Pane());
+
     }
 
-    
+    @FXML
+    void showUsuarios(ActionEvent event) {
+        limparBotoes(event.getSource());
+        masterPane.setCenter(new Pane());
+    }
 
-    // @FXML
-    // void logOff(MouseEvent event) {
-    //     Alert alert = new Alert(AlertType.CONFIRMATION, "Deseja realmente sair??", ButtonType.YES, ButtonType.NO);
-    //     alert.showAndWait()
-    //             .filter(response -> response == ButtonType.YES)
-    //             .ifPresent(response -> {
-    //                 App.setRoot("controller/Login.fxml");
-    //             });
-    // }
+    private void limparBotoes(Object source) {
+        menu.getChildren().forEach((node) -> {
+            if (node instanceof Button btn) {
+                node.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), false);
+            }
+        }
 
-    // @FXML
-    // void showHome(ActionEvent event) {
-    //     limparBotoes(event.getSource());
-    //     masterPane.setCenter(new Pane());
+        );
+        if (source instanceof Button btn) {
+            btn.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), true);
+        }
+    }
 
-    // }
+    @FXML
+    void showListProdutos(ActionEvent event) {
+        limparBotoes(event.getSource());
+        showFXMLFile("ListProduto.fxml");
+    }
 
-    // @FXML
-    // void showUsuarios(ActionEvent event) {
-    //     limparBotoes(event.getSource());
-    //     masterPane.setCenter(new Pane());
-    // }
+    @FXML
+    void showGerarRelatorios(ActionEvent event) {
+        limparBotoes(event.getSource());
+        showFXMLFile("Relatorio.fxml");
+    }
 
-    //  private void limparBotoes(Object source) {
-    //      menu.getChildren().forEach((node) -> {
-    //          if (node instanceof Button btn) {
-    //              node.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), false);                
-    //          }
-    //      }
+    private void showFXMLFile(String resourceName) {
+        try {
+            Pane fxmlCarregado = FXMLLoader.load(getClass().getResource(resourceName));
+            masterPane.setCenter(fxmlCarregado);
+        } catch (Exception e) {
+            new Alert(AlertType.ERROR, "Erro ao carregar o arquivo " + resourceName).showAndWait();
+            e.printStackTrace();
+        }
+    }
 
-    //      );
-    //      if (source instanceof Button btn) {
-    //          btn.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), true);
-    //      }
-    // }
+    public void setUserLogin(String login) {
+        userLogin.setText(login);
+    }
 
-    // @FXML
-    // void showCadAutores(ActionEvent event) {
-    //     limparBotoes(event.getSource());
-    //     showFXMLFile("CadAutor.fxml");
-    // }
-    // @FXML
-    // void showListAutores(ActionEvent event) {
-    //     limparBotoes(event.getSource());
-    //     showFXMLFile("ListAutor.fxml");
-    // }
-
-    // @FXML
-    // void showListLivros(ActionEvent event) {
-    //     limparBotoes(event.getSource());
-    //     showFXMLFile("ListLivro.fxml");
-    // }
-
-    // @FXML
-    // void showLivros(ActionEvent event) {
-    //     limparBotoes(event.getSource());
-    //     showFXMLFile("CadLivro.fxml");
-    // }
-
-     private void showFXMLFile(String resourceName) {
-         try {            
-             Pane fxmlCarregado = FXMLLoader.load(getClass().getResource(resourceName));
-             masterPane.setCenter(fxmlCarregado);
-         } catch (Exception e) {
-             new Alert(AlertType.ERROR, "Erro ao carregar o arquivo " + resourceName).showAndWait();
-             e.printStackTrace();
-         }
-     }
-
-    // public void setEmailUsuarioLogado(String email){
-    //     userEmail.setText(email);
-    // }
-
-    
 }

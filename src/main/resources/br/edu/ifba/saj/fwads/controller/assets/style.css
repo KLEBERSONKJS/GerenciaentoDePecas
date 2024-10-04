@@ -1,9 +1,35 @@
+
+
+.btn-redondo{
+    -fx-background-color: #353A56;
+    -fx-border-vidth: 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-styles: solid;
+}
+
+.btna{
+    -fx-background-color: #353A56;
+    
+}
+
+
 .top {
-    -fx-background-color: green;
+    -fx-background-color: rgb(21, 6, 56);
 }
 
 .main {
     -fx-background-color: lightgreen;
+
+}
+
+.btu {
+    -fx-background-color: rgb(165, 162, 11);
+
+}
+
+.botao {
+    -fx-background-color: rgb(0, 26, 255);
 
 }
 
